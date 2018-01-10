@@ -1,8 +1,8 @@
 <?php namespace Noxue\Ucenter\Services;
 
-use Binaryoung\Ucenter\Services\Help;
+use Noxue\Ucenter\Services\Help;
 
-class Api implements \Binaryoung\Ucenter\Contracts\Api
+class Api implements \Noxue\Ucenter\Contracts\Api
 {
     use Help;
 

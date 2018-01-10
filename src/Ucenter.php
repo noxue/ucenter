@@ -30,6 +30,10 @@ class Ucenter
 
     }
 
+    public function routes(){
+        Route::any(config('ucenter.url').'/api/'.config('ucenter.apifilename'), '\Noxue\Ucenter\Controllers\ApiController@run');
+    }
+
     public function __call($function, $arguments)
     {
         if (function_exists($function)) {

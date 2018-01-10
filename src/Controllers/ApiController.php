@@ -1,9 +1,9 @@
 <?php namespace Noxue\Ucenter\Controllers;
 
 use App\Http\Controllers\Controller;
-use Binaryoung\Ucenter\Contracts\Api;
+use Noxue\Ucenter\Contracts\Api;
 use Request,Config;
-use Binaryoung\Ucenter\Services\Help;
+use Noxue\Ucenter\Services\Help;
 
 class ApiController extends Controller 
 {
