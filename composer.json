@@ -25,6 +25,6 @@
     },
     "extra": {
     },
-    "minimum-stability": "v1.1",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
