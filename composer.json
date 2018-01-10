@@ -1,0 +1,33 @@
+{
+    "name": "noxue/ucenter",
+    "description": "ucenter client for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "noxue",
+            "email": "yes@noxue.com",
+            "homepage": "http://noxue.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Noxue\\Ucenter\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.0",
+        "mockery/mockery": "0.9.*",
+        "fzaninotto/faker": "~1.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
