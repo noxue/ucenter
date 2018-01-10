@@ -1,8 +1,12 @@
 ## Ucenter Client For Laravel5
 
+说明：本项目在 https://github.com/binaryoung/ucenter 项目的基础上做了修改。
+
+原项目，接口路由地址问题，在做同步登陆的时候不能用session，所以做了修复
+
 运行命令：
 ~~~
-composer require noxue/ucenter:v1.1
+composer require noxue/ucenter:v1.2
 ~~~
 
 安装完后，在 `app/config/app.php` 文件中找到 `providers` 键，
