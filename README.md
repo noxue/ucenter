@@ -6,7 +6,7 @@
 
 运行命令：
 ~~~
-composer require noxue/ucenter:v1.2
+composer require noxue/ucenter
 ~~~
 
 安装完后，在 `app/config/app.php` 文件中找到 `providers` 键，
