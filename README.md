@@ -32,21 +32,28 @@ php artisan vendor:publish
 ~~~
 ucenter配置项
 ~~~
-//config.php
-'url'		=> '', // 网站UCenter接受数据地址
-'api'		=> 'http://localhost/ucenter', // UCenter 的 URL 地址, 在调用头像时依赖此常量
-'connect'	=> 'mysql', // 连接 UCenter 的方式: mysql/NULL, 默认为空时为 fscoketopen()
-'dbhost'	=> 'localhost', // UCenter 数据库主机
-'dbuser'	=> 'root', // UCenter 数据库用户名
-'dbpw'		=> 'root', // UCenter 数据库密码
-'dbname'	=> 'ucenter', // UCenter 数据库名称
-'dbcharset'	=> 'utf8',// UCenter 数据库字符集
-'dbtablepre'=> '`uc`.uc_', // UCenter 数据库表前缀
-'key'		=> '666cLXgFsrl6TcvDflhrvdcziY8SnhP1eexl1eQ', // 与 UCenter 的通信密钥, 要与 UCenter 保持一致
-'charset'	=> 'utf-8', // UCenter 的字符集
-'ip'		=> '127.0.0.1', // UCenter 的 IP, 当 UC_CONNECT 为非 mysql 方式时, 并且当前应用服务器解析域名有问题时, 请设置此值
-'appid'		=> 1, //当前应用的 ID
-'ppp'		=> 20, //当前应用的 ID
+  //ucenter.php
+    'url'            => env('UC_URL', ''),  //这里是你的项目所在的接口api的前缀，比如 /xx/api/uc 一般直接留空。
+    'connect'        => env('UC_CONNECT', null), //这里可以是 mysql或者null，null会通过socket远程请求接口的方式通信
+    'dbhost'         => env('UC_DBHOST', 'localhost'),
+    'dbuser'         => env('UC_DBUSER', 'root'),
+    'dbpw'           => env('UC_DBPW', 'root'),
+    'dbname'         => env('UC_DBNAME', 'ucenter'),
+    'dbcharset'      => env('UC_DBCHARSET', 'utf8'),
+    'dbtablepre'     => env('UC_DBTABLEPRE', '`ucenter`.uc_'),
+    'dbconnect'      => env('UC_DBCONNECT', '0'),
+    'key'            => env('UC_KEY', 'asflkhKFJHGH5648asdfasdfhj9845613asdf'),  //这个是通信密钥，必须和服务端统一【*】
+    'api'            => env('UC_API', 'http://dz.noxue.cn/uc_server'),                  //这个是uc_server的服务端地址【*】
+    'ip'             => env('UC_IP', '127.0.0.1'),
+    'charset'        => env('UC_CHARSET', 'utf-8'),
+    'appid'          => env('UC_APPID', '1'),   //这里是应用编号
+    'ppp'            => env('UC_PPP', '20'),
+
+    //这里是uc_server调用你的程序的接口，配置成uc的话，将会和前面的UC_URL配置一起形成这样的地址 url/api/uc
+    'apifilename'    => env('UC_APIFILENAME', 'uc'),
+
+    //这里如果要异步登陆，可以直接继承这个类实现其中的方法，也可以创建app/Service/Ucenter.php(文件放哪里都可以，这里只是推荐) 实现该类实现的接口【*】
+    'service'        => env('UC_SERVICE', 'Noxue\Ucenter\Services\Api'),
 ~~~
 
 ## 使用
@@ -56,8 +63,7 @@ $result = Ucenter::uc_get_user('test');
 var_dump($result);
 ~~~
 
-更多函数请参考 [Ucenter 文档](http://faq.comsenz.com/library/UCenter/interface/interface_user.htm)
-
+有任何疑问请到此处提问：http://www.noxue.com/f-wenda-1.html
 
 ## 联系我
 有问题，请提交issue
