@@ -1,6 +1,6 @@
 <?php namespace Noxue\Ucenter;
 
-use Config;
+use Config,Route;
 
 class Ucenter
 {

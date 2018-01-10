@@ -2,7 +2,7 @@
 
 运行命令：
 ~~~
-composer require noxue/ucenter
+composer require noxue/ucenter:v1.1
 ~~~
 
 安装完后，在 `app/config/app.php` 文件中找到 `providers` 键，
@@ -25,14 +25,19 @@ composer require noxue/ucenter
 ]
 ~~~
 
-## 配置
+## 配置文件
 运行以下命令发布配置文件
-~~~
-php artisan vendor:publish
-~~~
-ucenter配置项
-~~~
-  //ucenter.php
+
+创建 `config/ucenter.php` 写入以下内容：
+
+```
+<?php
+
+/**
+ * 为了方便，直接修改以下带【*】的配置即可
+ */
+
+return [
     'url'            => env('UC_URL', ''),  //这里是你的项目所在的接口api的前缀，比如 /xx/api/uc 一般直接留空。
     'connect'        => env('UC_CONNECT', null), //这里可以是 mysql或者null，null会通过socket远程请求接口的方式通信
     'dbhost'         => env('UC_DBHOST', 'localhost'),
@@ -54,12 +59,22 @@ ucenter配置项
 
     //这里如果要异步登陆，可以直接继承这个类实现其中的方法，也可以创建app/Service/Ucenter.php(文件放哪里都可以，这里只是推荐) 实现该类实现的接口【*】
     'service'        => env('UC_SERVICE', 'Noxue\Ucenter\Services\Api'),
-~~~
+];
+
+```
+
+## 路由
+
+在`routes/web.php`中写入:
+
+`Ucenter::routes();`
+
+这个会添加一个api地址，用于同步登陆和退出
 
 ## 使用
-例如：获取用户名为test的信息
+例如：获取用户名为admin的信息
 ~~~
-$result = Ucenter::uc_get_user('test');
+$result = Ucenter::uc_get_user('admin');
 var_dump($result);
 ~~~
 
