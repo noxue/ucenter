@@ -1,4 +1,4 @@
-## Ucenter Client For Laravel5
+## discuz Ucenter 集成 laravel5.5
 
 说明：本项目在 https://github.com/binaryoung/ucenter 项目的基础上做了修改。
 
